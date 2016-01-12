@@ -27,7 +27,7 @@ value = 0
 direction = 1
 
 while True:
-    print value
+    #print value
     for pin in pins:
         pin.write(value)
     value = value + 0.005 * direction
