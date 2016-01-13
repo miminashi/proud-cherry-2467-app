@@ -30,7 +30,7 @@ while True:
     #print value
     for pin in pins:
         pin.write(value)
-    value = value + 0.005 * direction
+    value = value + 0.1 * direction
     if value >= MAX_VALUE:
         value = MAX_VALUE
         direction = -1
