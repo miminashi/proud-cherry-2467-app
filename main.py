@@ -26,6 +26,7 @@ for pin_number in LED_PIN_NUMBERS:
 value = 0
 direction = 1
 
+## fade
 #while True:
 #    #print value
 #    for pin in pins:
@@ -39,11 +40,17 @@ direction = 1
 #        direction = 1
 #    else:
 #        time.sleep(0.05)
-while True:    
-    for pin in pins:
-        pin.write(1)
-    time.sleep(0.01)
-    for pin in pins:
-        pin.write(0)
-    time.sleep(0.99)
+
+## blink
+#while True:    
+#    for pin in pins:
+#        pin.write(1)
+#    time.sleep(0.01)
+#    for pin in pins:
+#        pin.write(0)
+#    time.sleep(0.99)
+
+# light on
+for pin in pins:
+    pin.write(1)
 
