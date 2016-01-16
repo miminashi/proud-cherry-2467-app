@@ -26,17 +26,22 @@ for pin_number in LED_PIN_NUMBERS:
 value = 0
 direction = 1
 
+#while True:
+#    #print value
+#    for pin in pins:
+#        pin.write(value)
+#    value = value + 0.01 * direction
+#    if value >= MAX_VALUE:
+#        value = MAX_VALUE
+#        direction = -1
+#    elif value <= MIN_VALUE:
+#        value = MIN_VALUE
+#        direction = 1
+#    else:
+#        time.sleep(0.05)
 while True:
-    #print value
-    for pin in pins:
-        pin.write(value)
-    value = value + 0.01 * direction
-    if value >= MAX_VALUE:
-        value = MAX_VALUE
-        direction = -1
-    elif value <= MIN_VALUE:
-        value = MIN_VALUE
-        direction = 1
-    else:
-        time.sleep(0.05)
+    pin.write(1)
+    time.sleep(0.01)
+    pin.write(0)
+    time.sleep(0.99)
 
