@@ -52,5 +52,5 @@ direction = 1
 
 # light on
 for pin in pins:
-    pin.write(1)
+    pin.write(0)
 
