@@ -39,9 +39,11 @@ direction = 1
 #        direction = 1
 #    else:
 #        time.sleep(0.05)
-while True:
-    pin.write(1)
+while True:    
+    for pin in pins:
+        pin.write(1)
     time.sleep(0.01)
-    pin.write(0)
+    for pin in pins:
+        pin.write(0)
     time.sleep(0.99)
 
