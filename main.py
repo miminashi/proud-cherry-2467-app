@@ -6,7 +6,7 @@ import time
 import math
 
 #LED_PIN_NUMBERS = [3, 5, 6, 9]
-LED_PIN_NUMBERS = [3, 5, 6]
+LED_PIN_NUMBERS = [3, 5, 6, 9]
 MIN_VALUE  = 0.0
 MAX_VALUE  = 1.0
 PWM_INTERVAL = 10000  # 10msec
