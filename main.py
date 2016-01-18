@@ -21,6 +21,7 @@ for pin_number in LED_PIN_NUMBERS:
     pin = mraa.Pwm(pin_number)
     pin.period_us(PWM_INTERVAL)
     pin.enable(False)
+    time.sleep(1.0)
     pin.enable(True)
     pins.append(pin)
 
