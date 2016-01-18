@@ -52,7 +52,7 @@ direction = 1
 #    time.sleep(0.99)
 
 # light on
-on_pin_numbers = [3, 5]
+on_pin_numbers = [3]
 for pin_number in LED_PIN_NUMBERS:
     pin = pins[pin_number]
     pin.enable(False)
