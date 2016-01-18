@@ -20,10 +20,9 @@ pins = []
 for pin_number in LED_PIN_NUMBERS:
     pin = mraa.Pwm(pin_number)
     pin.period_us(PWM_INTERVAL)
-    pin.enable(False)
-    time.sleep(1.0)
     pin.enable(True)
     pins.append(pin)
+
 
 value = 0
 direction = 1
@@ -53,6 +52,7 @@ direction = 1
 #    time.sleep(0.99)
 
 # light on
-for pin in pins:
-    pin.write(1)
-
+while True:
+    for pin in pins:
+        pin.write(1)
+    time.sleep(0.1)
