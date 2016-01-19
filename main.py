@@ -11,10 +11,12 @@ MIN_VALUE  = 0.0
 MAX_VALUE  = 1.0
 PWM_INTERVAL = 10000  # 10msec
 
+# value is 0 ~ 255
 def map_exp_0_to_255(value):
     v = value * 8.0 / 255.0
     return math.pow(2.0, v) - 1.0
 
+# maps 0 ~ 255 -> 0 ~ 1.0
 def map_255_to_1(value):
     return value / 255.0
 
@@ -30,7 +32,7 @@ def get_pins():
 
 def write_pins(pins, value):
     for pin_number, pin in pins.iteritems():
-        pin.write(map_255_to_1(map_exp_0_to_255(x)))
+        pin.write(map_255_to_1(map_exp_0_to_255(value)))
 
 def write_pins_and_wait(pins, value):
     write_pins(pins, value)
@@ -43,7 +45,7 @@ def disable_pins(pins):
 def exit_signal_handler(signo, frame):
     pins = get_pins()
     disable_pins(pins)
-    time.sleep(0.1)
+    time.sleep(0.5)
     print("exitting...")
     exit()
 
@@ -55,36 +57,12 @@ signal.signal(signal.SIGTERM, exit_signal_handler)
 # get pins
 pins = get_pins()
 
-#for pin_number in LED_PIN_NUMBERS:
-#    pin = mraa.Pwm(pin_number)
-#    pin.period_us(PWM_INTERVAL)
-#    pin.enable(True)
-#    pin.write(0.0)
-#    pins[pin_number] = pin
-
-while True:
-    for x in xrange(255):
-        write_pins_and_wait(pins, x)
-    for x in xrange(255, 0, -1):
-        write_pins_and_wait(pins, x)
-
-#value = 0
-#direction = 1
-
 ## fade
 #while True:
-#    #print value
-#    for pin in pins:
-#        pin.write(value)
-#    value = value + 0.01 * direction
-#    if value >= MAX_VALUE:
-#        value = MAX_VALUE
-#        direction = -1
-#    elif value <= MIN_VALUE:
-#        value = MIN_VALUE
-#        direction = 1
-#    else:
-#        time.sleep(0.05)
+#    for x in xrange(255):
+#        write_pins_and_wait(pins, x)
+#    for x in xrange(255, 0, -1):
+#        write_pins_and_wait(pins, x)
 
 ## blink
 #while True:    
@@ -95,18 +73,8 @@ while True:
 #        pin.write(0)
 #    time.sleep(0.99)
 
-## light on
-#on_pin_numbers = [3, 5, 6, 9]
-#for pin_number in LED_PIN_NUMBERS:
-#    pin = pins[pin_number]
-#    pin.enable(False)
-#for pin_number in on_pin_numbers:
-#    pin = pins[pin_number]
-#    pin.enable(True)
-#    pin.write(0)
-
-#time.sleep(5)
-
-#pins[3].enable(False)
-
+# light on
+write_pins(pins, 255)
+while True:
+    continue
 
