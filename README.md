@@ -1,1 +1,4 @@
-# proud-cherry-2467-app
+# polestar
+
+Smart LED ceiling light
+
