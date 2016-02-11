@@ -57,12 +57,12 @@ signal.signal(signal.SIGTERM, exit_signal_handler)
 # get pins
 pins = get_pins()
 
-## fade
-#while True:
-#    for x in xrange(255):
-#        write_pins_and_wait(pins, x)
-#    for x in xrange(255, 0, -1):
-#        write_pins_and_wait(pins, x)
+# fade
+while True:
+    for x in xrange(255):
+        write_pins_and_wait(pins, x)
+    for x in xrange(255, 0, -1):
+        write_pins_and_wait(pins, x)
 
 ## blink
 #while True:    
@@ -73,8 +73,8 @@ pins = get_pins()
 #        pin.write(0)
 #    time.sleep(0.99)
 
-# light on
-write_pins(pins, 255)
-while True:
-    continue
+## light on
+#write_pins(pins, 255)
+#while True:
+#    continue
 
